@@ -1,0 +1,34 @@
+{
+  "name": "number",
+  "plural": "numbers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "id": true,
+      "type": "string",
+      "defaultFn": "uuid"
+    },
+    "lineId": {
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "line": {
+      "type": "belongsTo",
+      "model": "line"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
+}

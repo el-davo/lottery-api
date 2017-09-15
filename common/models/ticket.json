@@ -1,0 +1,36 @@
+{
+  "name": "ticket",
+  "plural": "tickets",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "id": true,
+      "type": "string",
+      "defaultFn": "uuid"
+    },
+    "totalLines": {
+      "type": "number",
+      "persistent": false,
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "lines": {
+      "type": "hasMany",
+      "model": "line"
+    },
+    "numbers": {
+      "type": "hasMany",
+      "model": "number",
+      "through": "line"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
+}

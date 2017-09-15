@@ -1,0 +1,33 @@
+{
+  "name": "line",
+  "plural": "lines",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "id": true,
+      "type": "string",
+      "defaultFn": "uuid"
+    },
+    "result": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ticket": {
+      "type": "belongsTo",
+      "model": "ticket"
+    },
+    "numbers": {
+      "type": "hasMany",
+      "model": "number"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
+}
