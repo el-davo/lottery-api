@@ -16,6 +16,11 @@
       "type": "number",
       "persistent": false,
       "required": true
+    },
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   },
   "validations": [],
