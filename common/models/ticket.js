@@ -2,22 +2,18 @@
 
 let {times} = require('lodash');
 
-module.exports = Link => {
+module.exports = Ticket => {
 
   /**
    * Generate n lines for the ticket
    */
-  Link.observe('after save', (ctx, next) => {
-    if (!ctx.instance) {
+  Ticket.observe('after save', (ctx, next) => {
+    if (!ctx.isNewInstance) {
       return next();
     }
-    console.log(times(ctx.instance.totalLines, {ticketId: ctx.instance}));
+    let {totalLines, id, lines: {create}} = ctx.instance;
+    let lines = times(totalLines, () => ({ticketId: id}));
 
-    next();
-    /*ctx.instances.lines.create({}, () => {
-      next();
-    });
-
-    console.log(ctx.instance.totalLines);*/
+    create(lines, next);
   });
 };
