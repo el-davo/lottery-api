@@ -5,9 +5,16 @@ let {times} = require('lodash');
 module.exports = BulkCreateLines => {
   BulkCreateLines.bulkCreateLines = (req, amount, ticketId, next) => {
     let Line = BulkCreateLines.app.models.Line;
+    let Ticket = BulkCreateLines.app.models.Ticket;
 
-    Line.create(times(amount, () => ({ticketId})), (err, lines) => {
-      next(err, lines);
+    Ticket.findById(ticketId, (err, ticket) => {
+      if (err || !ticket || ticket.checked) {
+        return next('Unable to add new lines');
+      }
+
+      Line.create(times(amount, () => ({ticketId})), (err, lines) => {
+        next(err, lines);
+      });
     });
   };
 
@@ -18,7 +25,7 @@ module.exports = BulkCreateLines => {
       {arg: 'ticketId', type: 'string', required: true}
     ],
     isStatic: true,
-    returns: {type: 'array'},
+    returns: {arg: 'lines', type: 'array'},
     http: {path: '/', verb: 'post'}
   });
 };
