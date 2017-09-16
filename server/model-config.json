@@ -47,5 +47,9 @@
   "number": {
     "dataSource": "db",
     "public": false
+  },
+  "bulkCreateLines": {
+    "dataSource": null,
+    "public": true
   }
 }
