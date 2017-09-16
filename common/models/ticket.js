@@ -15,7 +15,6 @@ module.exports = Ticket => {
     let lines = times(totalLines, () => ({ticketId: id}));
 
     create(lines, (err, lines) => {
-      console.log(lines);
       next(err, lines);
     });
   });
@@ -24,7 +23,6 @@ module.exports = Ticket => {
    * Disable remote api methods
    */
   Ticket.disableRemoteMethodByName('deleteById');
-  Ticket.disableRemoteMethodByName('upsert');
   Ticket.disableRemoteMethodByName('upsertWithWhere');
   Ticket.disableRemoteMethodByName('replaceOrCreate');
   Ticket.disableRemoteMethodByName('replace');
