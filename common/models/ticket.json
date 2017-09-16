@@ -23,6 +23,13 @@
       "required": true
     }
   },
+  "scope": {
+    "include": {
+      "lines": [
+        "numbers"
+      ]
+    }
+  },
   "validations": [],
   "relations": {
     "lines": {
