@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "start": "nodemon server/server.js --watch common --watch server.",
     "test": "mocha test/**",
-    "test:watch": "npm run test -- --watch test/** server/ common/ --watch-extensions js,json"
+    "test:watch": "npm run test -- --watch test/** server/ common/ --watch-extensions js,json",
+    "docker": "docker build -t lottery-api ."
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -18,6 +19,7 @@
     "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
+    "loopback-connector-mysql": "^5.1.0",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.0.0"
   },
