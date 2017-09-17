@@ -12,6 +12,10 @@
       "type": "string",
       "defaultFn": "uuid"
     },
+    "createdAt":{
+      "type" : "date",
+      "defaultFn": "now"
+    },
     "totalLines": {
       "type": "number",
       "persistent": false,
