@@ -19,3 +19,5 @@ node_modules
 npm-debug.log
 .idea/
 mydata.json
+.nyc_output
+coverage/
