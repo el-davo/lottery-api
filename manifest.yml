@@ -1,4 +1,4 @@
-name: lotter-api
+name: lottery-api
 instances: 1
 memory: 256M
 buildpack: nodejs_buildpack
