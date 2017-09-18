@@ -25,7 +25,6 @@ module.exports = Ticket => {
   Ticket.disableRemoteMethodByName('deleteById');
   Ticket.disableRemoteMethodByName('upsertWithWhere');
   Ticket.disableRemoteMethodByName('replaceOrCreate');
-  Ticket.disableRemoteMethodByName('replace');
   Ticket.disableRemoteMethodByName('replaceById');
   Ticket.disableRemoteMethodByName('updateAll');
   Ticket.disableRemoteMethodByName('prototype.updateAttributes');
