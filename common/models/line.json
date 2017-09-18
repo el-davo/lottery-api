@@ -21,7 +21,7 @@
     }
   },
   "scope": {
-    "order": "result"
+    "order": "result DESC"
   },
   "validations": [],
   "relations": {
