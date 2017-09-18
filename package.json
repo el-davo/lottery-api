@@ -6,7 +6,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "lint": "eslint test/**/*.js server/**/*.js common/**/*.js",
+    "lint": "eslint .",
     "start": "nodemon server/server.js --watch common --watch server.",
     "test": "nyc --reporter=html mocha test/**",
     "test:watch": "npm run test -- --watch test/** server/ common/ --watch-extensions js,json",
