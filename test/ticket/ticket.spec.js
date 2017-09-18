@@ -18,7 +18,7 @@ describe('Ticket', () => {
       });
   });
 
-  it('should have a new ticket with n lines', (done) => {
+  it('should have a new ticket with n lines', done => {
     request(app)
       .get(`/api/tickets/${ticketId}`)
       .end((err, {body}) => {
@@ -28,7 +28,7 @@ describe('Ticket', () => {
       });
   });
 
-  it('should have 3 numbers per line and a result', (done) => {
+  it('should have 3 numbers per line and a result', done => {
     request(app)
       .get(`/api/tickets/${ticketId}`)
       .end((err, {body}) => {
