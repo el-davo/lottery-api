@@ -12,6 +12,7 @@ describe('Ticket', () => {
     request(app)
       .post('/api/tickets')
       .send({totalLines: 10})
+      .expect(200)
       .end((err, {body: {id}}) => {
         ticketId = id;
         done();
@@ -21,6 +22,7 @@ describe('Ticket', () => {
   it('should have a new ticket with n lines', done => {
     request(app)
       .get(`/api/tickets/${ticketId}`)
+      .expect(200)
       .end((err, {body}) => {
         expect(body.lines).to.be.an('array');
         expect(body.lines).to.have.length(10);
@@ -31,6 +33,7 @@ describe('Ticket', () => {
   it('should have 3 numbers per line and a result', done => {
     request(app)
       .get(`/api/tickets/${ticketId}`)
+      .expect(200)
       .end((err, {body}) => {
         for (let line of body.lines) {
           expect(line.result).to.be.a('number');
