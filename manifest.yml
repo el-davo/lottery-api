@@ -2,5 +2,6 @@ name: lottery-api
 instances: 1
 memory: 256M
 buildpack: nodejs_buildpack
+command: node .
 env:
     NODE_ENV: production
