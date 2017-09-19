@@ -10,5 +10,10 @@ cache:
 deploy:
   provider: cloudfoundry
   api: api.run.pivotal.io
+  username: david.ahern26@gmail.com
+  password:
+    secure: XeIrlhUtJaF87N0RUGv1Nb+VcANp3LT1ohA/aAvmm8NmHuFF7P/imn1etv/gJ+OL6C1dk6rElARSThJRlnRBQisQ2YrN6KVDcRaj9O7jvZnLmQEZ7CihuwXW+EbwUbflfBHwrYFNSZFurVpeD1dpGi3J0BujSWOAoJk8UH5CPoVZpqWppiPK1u0x+eI7U6654bcXS0yKPrI6u63ywYehGa1EMUAGBCYmsSMvMBLgtlmmtZUu9mvNrcy6+UbvvDUxQM7O/+dV3k7eGUl7TWO8xThSBT7d6+ocw1kl5qvJmknTVizc5zgDsZakIPx8Sa6Xjt2MhhC7GMHiMDWabx9YjMbGSZVIzIxSIbeWoOwObgi3VbsH0qFNizJlH4HcemVK18SZvc9Heol9f3u7VTYCrq08xc19YCQ42EE7g6oTpxxZVejE+VbONC+vpLrBoRRROdG4Usd6Ax4A3gLDK8YAYEgwuXvwDj/XT5Vy+yynnoFqF4cjidPT6sRH6nxrhs8hj5DjFbgCj2BNJvly6ttWOVfEtCtbi0nD45PlZv0DYCu/EGBLq5lax0s0qNV1VN/lHPXsdzYvE+dQnqS/I0WA1I5sYRIoJ9gKXczZbdKs1L53crw+zgwN68UjKCt398Y26iwyiSFr9/EzM+N6tEzbs30II7QHf9J9nMwAawK/ylU=
+  organization: thor
+  space: prod
   on:
     branch: master
