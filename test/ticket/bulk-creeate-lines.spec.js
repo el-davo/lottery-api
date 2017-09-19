@@ -22,7 +22,7 @@ describe('Bulk Create Lines', () => {
   it('should add n lines to the ticket', done => {
     request(app)
       .post('/api/bulkCreateLines')
-      .send({ticketId, totalLInes: 2})
+      .send({ticketId, totalLines: 2})
       .expect(200)
       .end((err, {body: {lines}}) => {
         expect(lines).to.be.an('array');
@@ -44,7 +44,7 @@ describe('Bulk Create Lines', () => {
       .end(() => {
         request(app)
           .post('/api/bulkCreateLines')
-          .send({ticketId, totalLInes: 2})
+          .send({ticketId, totalLines: 2})
           .end((err, {body}) => {
             expect(body.error.message).to.be('Unable to add new lines');
             done();

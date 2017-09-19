@@ -3,7 +3,7 @@
 let {times} = require('lodash');
 
 module.exports = BulkCreateLines => {
-  BulkCreateLines.bulkCreateLines = (req, totalLInes, ticketId, next) => {
+  BulkCreateLines.bulkCreateLines = (req, totalLines, ticketId, next) => {
     let Line = BulkCreateLines.app.models.Line;
     let Ticket = BulkCreateLines.app.models.Ticket;
 
@@ -12,7 +12,7 @@ module.exports = BulkCreateLines => {
         return next('Unable to add new lines');
       }
 
-      Line.create(times(totalLInes, () => ({ticketId})), (err, lines) => {
+      Line.create(times(totalLines, () => ({ticketId})), (err, lines) => {
         next(err, lines);
       });
     });
@@ -21,7 +21,7 @@ module.exports = BulkCreateLines => {
   BulkCreateLines.remoteMethod('bulkCreateLines', {
     accepts: [
       {arg: 'req', type: 'object', http: {source: 'req'}},
-      {arg: 'totalLInes', type: 'number', required: true},
+      {arg: 'totalLines', type: 'number', required: true},
       {arg: 'ticketId', type: 'string', required: true}
     ],
     isStatic: true,
