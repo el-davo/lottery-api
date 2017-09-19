@@ -44,4 +44,30 @@ describe('Ticket', () => {
       });
   });
 
+  describe('delete', () => {
+
+    let deletingTicketId;
+
+    beforeEach(done => {
+      request(app)
+        .post('/api/tickets')
+        .send({totalLines: 10})
+        .expect(200)
+        .end((err, {body: {id}}) => {
+          deletingTicketId = id;
+          done();
+        });
+    });
+
+    it('should be able to delete a ticket', done => {
+      request(app)
+        .delete(`/api/tickets/${deletingTicketId}`)
+        .expect(200)
+        .end((err, {body}) => {
+          expect(body.count).to.be(1);
+          done();
+        });
+    });
+  });
+
 });

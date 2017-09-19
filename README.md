@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/el-davo/lottery-api.svg?branch=master)](https://travis-ci.org/el-davo/lottery-api)
 
+### About
+
+This project is built with node.js and is using loopback. For more information on loopback please check out the link - http://loopback.io/
+
 ### Installation
 
 It is recommended to use yarn for installation, If you are not aware of yarn then please see here https://github.com/yarnpkg/yarn

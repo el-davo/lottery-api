@@ -22,7 +22,6 @@ module.exports = Ticket => {
   /**
    * Disable remote api methods
    */
-  Ticket.disableRemoteMethodByName('deleteById');
   Ticket.disableRemoteMethodByName('upsertWithWhere');
   Ticket.disableRemoteMethodByName('replaceOrCreate');
   Ticket.disableRemoteMethodByName('replaceById');
