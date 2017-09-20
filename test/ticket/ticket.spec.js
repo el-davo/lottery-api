@@ -85,7 +85,7 @@ describe('Ticket', () => {
     it('must have no more than 100 lines per ticket', done => {
       request(app)
         .post('/api/tickets')
-        .send({totalLines: 100})
+        .send({totalLines: 101})
         .end((err, {body}) => {
           expect(body.error.message).to.contain('Lines must be between 1 and 100');
           done();

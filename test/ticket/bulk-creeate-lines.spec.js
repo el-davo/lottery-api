@@ -52,4 +52,29 @@ describe('Bulk Create Lines', () => {
       });
   });
 
+  describe('validations', () => {
+
+    it('should not allow less than 1 line', done => {
+      request(app)
+        .post('/api/bulkCreateLines')
+        .send({ticketId, totalLines: 0})
+        .expect(200)
+        .end((err, {body}) => {
+          expect(body.error.message).to.contain('Lines must be between 1 and 100');
+          done();
+        });
+    });
+
+    it('should not allow more than 100 lines', done => {
+      request(app)
+        .post('/api/bulkCreateLines')
+        .send({ticketId, totalLines: 101})
+        .expect(200)
+        .end((err, {body}) => {
+          expect(body.error.message).to.contain('Lines must be between 1 and 100');
+          done();
+        });
+    });
+  });
+
 });

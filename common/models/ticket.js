@@ -1,6 +1,7 @@
 'use strict';
 
 let {times, inRange} = require('lodash');
+let {MIN_ALLOWED_LINES, MAX_ALLOWED_LINES} = require('../config/config');
 
 module.exports = Ticket => {
 
@@ -22,10 +23,12 @@ module.exports = Ticket => {
   /**
    * Validations
    */
-  Ticket.validate('totalLines', validateTotalLines, {message: 'Lines must be between 1 and 100'});
+  Ticket.validate('totalLines', validateTotalLines, {
+    message: `Lines must be between ${MIN_ALLOWED_LINES} and ${MAX_ALLOWED_LINES - 1}`
+  });
 
   function validateTotalLines(err) {
-    return inRange(this.totalLines, 1, 100) ? null : err();
+    return inRange(this.totalLines, MIN_ALLOWED_LINES, MAX_ALLOWED_LINES) ? null : err();
   }
 
   /**
