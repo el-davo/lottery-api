@@ -1,6 +1,6 @@
 'use strict';
 
-let {times, inRange} = require('lodash');
+let {times} = require('lodash');
 let {MIN_ALLOWED_LINES, MAX_ALLOWED_LINES} = require('../config/config');
 
 module.exports = BulkCreateLines => {
@@ -8,8 +8,8 @@ module.exports = BulkCreateLines => {
     let Line = BulkCreateLines.app.models.Line;
     let Ticket = BulkCreateLines.app.models.Ticket;
 
-    if (!inRange(totalLines, MIN_ALLOWED_LINES, MAX_ALLOWED_LINES)) {
-      return next(`Lines must be between ${MIN_ALLOWED_LINES} and ${MAX_ALLOWED_LINES - 1}`);
+    if (totalLines < MIN_ALLOWED_LINES || totalLines > MAX_ALLOWED_LINES) {
+      return next(`Lines must be between ${MIN_ALLOWED_LINES} and ${MAX_ALLOWED_LINES}`);
     }
 
     Ticket.findById(ticketId, (err, ticket) => {
