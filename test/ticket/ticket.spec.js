@@ -70,4 +70,27 @@ describe('Ticket', () => {
     });
   });
 
+  describe('validations', () => {
+
+    it('must have at least 1 line on a ticket', done => {
+      request(app)
+        .post('/api/tickets')
+        .send({totalLines: 0})
+        .end((err, {body}) => {
+          expect(body.error.message).to.contain('Lines must be between 1 and 100');
+          done();
+        });
+    });
+
+    it('must have no more than 100 lines per ticket', done => {
+      request(app)
+        .post('/api/tickets')
+        .send({totalLines: 100})
+        .end((err, {body}) => {
+          expect(body.error.message).to.contain('Lines must be between 1 and 100');
+          done();
+        });
+    });
+  });
+
 });

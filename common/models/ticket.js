@@ -1,6 +1,6 @@
 'use strict';
 
-let {times} = require('lodash');
+let {times, inRange} = require('lodash');
 
 module.exports = Ticket => {
 
@@ -18,6 +18,15 @@ module.exports = Ticket => {
       next(err, lines);
     });
   });
+
+  /**
+   * Validations
+   */
+  Ticket.validate('totalLines', validateTotalLines, {message: 'Lines must be between 1 and 100'});
+
+  function validateTotalLines(err) {
+    return inRange(this.totalLines, 1, 100) ? null : err();
+  }
 
   /**
    * Disable remote api methods
